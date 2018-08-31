@@ -1,13 +1,18 @@
 import React, {Component} from 'react'
-import {SparklinesLine ,Sparklines} from 'react-sparklines'
+import {SparklinesLine ,Sparklines, SparklinesReferenceLine} from 'react-sparklines'
 
 const Chart = ({data,color}) =>{
-    const defaultSparkHeight = 25;
-    const defaultSparkWidth = 90;
+    const defaultSparkHeight = 100;
+    const defaultSparkWidth = 180;
 
-    return ( <Sparklines height={defaultSparkHeight} width={defaultSparkWidth} data={data}> 
+    return ( <div style={{width:defaultSparkWidth, height:defaultSparkHeight}}><Sparklines 
+        height={defaultSparkHeight} 
+        width={defaultSparkWidth} 
+        data={data}> 
         <SparklinesLine color={color} />
-    </Sparklines>)
+        <SparklinesReferenceLine type="avg" />
+    </Sparklines>
+    </div>)
 
 };
 
