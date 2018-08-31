@@ -1,13 +1,14 @@
 import axios from 'axios';
 
-const rootUrl = `https://samples.openweathermap.org/data/2.5/forecast?appid=${config.API_KEY}`;
+const rootUrl = `https://api.openweathermap.org/data/2.5/forecast?appid=${config.API_KEY}`;
 
 export const FETCH_WEATHER = 'FETCH_WEATHER'
 
 export function fetchWeather(city){
+    console.log(city);
     const url = `${rootUrl}&q=${city},br`
-    // const request = axios.get(url);
-    const res = getData(url);
+    const request = axios.get(url);
+    //const res = getData(url);
 
     console.log("request", request);
 
@@ -17,7 +18,7 @@ export function fetchWeather(city){
     };
 }
 
-async function getData(url){
-    const res = await axios.get(url);
-    return res;
-}
+// async function getData(url){
+//     const res = await axios.get(url);
+//     return res;
+// }
